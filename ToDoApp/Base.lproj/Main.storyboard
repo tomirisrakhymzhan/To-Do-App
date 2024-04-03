@@ -1,24 +1,186 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dwN-wN-oLq">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Add task-->
+        <scene sceneID="ItD-NT-s0S">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="7Iy-Mu-IHP" customClass="AddTaskController" customModule="ToDoApp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OBl-wa-kby">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name task:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9P-iD-MIM">
+                                <rect key="frame" x="32" y="99" width="329" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.96862745100000003" green="0.25490196079999999" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select priority:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnb-sb-PUU">
+                                <rect key="frame" x="32" y="214" width="329" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.96862745100000003" green="0.25490196079999999" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bf8-ge-vxV">
+                                <rect key="frame" x="32" y="511" width="329" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Add task"/>
+                                <connections>
+                                    <action selector="addTaskBtnPressed:" destination="7Iy-Mu-IHP" eventType="touchUpInside" id="lgX-W3-eHG"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="task name (255 characters)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dTJ-Hs-HUw">
+                                <rect key="frame" x="32" y="140" width="329" height="34"/>
+                                <color key="textColor" red="0.96862745100000003" green="0.25490196079999999" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YNV-v0-eva">
+                                <rect key="frame" x="32" y="255" width="329" height="216"/>
+                                <color key="backgroundColor" red="1" green="0.95294117649999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pickerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="EeP-Tq-mKf"/>
+                        <color key="backgroundColor" red="1" green="0.95294117649999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.96862745100000003" green="0.25490196079999999" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="bnb-sb-PUU" firstAttribute="top" secondItem="dTJ-Hs-HUw" secondAttribute="bottom" constant="40" id="1P2-ne-JxN"/>
+                            <constraint firstItem="s9P-iD-MIM" firstAttribute="leading" secondItem="EeP-Tq-mKf" secondAttribute="leading" constant="32" id="7p6-1B-xPj"/>
+                            <constraint firstItem="bnb-sb-PUU" firstAttribute="leading" secondItem="EeP-Tq-mKf" secondAttribute="leading" constant="32" id="85c-Mt-Fet"/>
+                            <constraint firstItem="dTJ-Hs-HUw" firstAttribute="leading" secondItem="EeP-Tq-mKf" secondAttribute="leading" constant="32" id="8Yw-NY-09E"/>
+                            <constraint firstItem="dTJ-Hs-HUw" firstAttribute="top" secondItem="s9P-iD-MIM" secondAttribute="bottom" constant="20" id="HtL-fA-VQZ"/>
+                            <constraint firstItem="Bf8-ge-vxV" firstAttribute="top" secondItem="YNV-v0-eva" secondAttribute="bottom" constant="40" id="NDb-ct-21P"/>
+                            <constraint firstItem="s9P-iD-MIM" firstAttribute="top" secondItem="EeP-Tq-mKf" secondAttribute="top" constant="40" id="PxK-5X-DXc"/>
+                            <constraint firstItem="YNV-v0-eva" firstAttribute="top" secondItem="bnb-sb-PUU" secondAttribute="bottom" constant="20" id="X3Q-xU-i5y"/>
+                            <constraint firstItem="EeP-Tq-mKf" firstAttribute="trailing" secondItem="bnb-sb-PUU" secondAttribute="trailing" constant="32" id="djT-2Z-VTR"/>
+                            <constraint firstItem="EeP-Tq-mKf" firstAttribute="trailing" secondItem="s9P-iD-MIM" secondAttribute="trailing" constant="32" id="me8-Vn-xq1"/>
+                            <constraint firstItem="EeP-Tq-mKf" firstAttribute="trailing" secondItem="Bf8-ge-vxV" secondAttribute="trailing" constant="32" id="n66-E4-cYs"/>
+                            <constraint firstAttribute="trailing" secondItem="YNV-v0-eva" secondAttribute="trailing" constant="32" id="tEG-aD-cav"/>
+                            <constraint firstItem="YNV-v0-eva" firstAttribute="leading" secondItem="EeP-Tq-mKf" secondAttribute="leading" constant="32" id="u7G-Z6-Z0S"/>
+                            <constraint firstItem="EeP-Tq-mKf" firstAttribute="trailing" secondItem="dTJ-Hs-HUw" secondAttribute="trailing" constant="32" id="wbE-NJ-uZf"/>
+                            <constraint firstItem="Bf8-ge-vxV" firstAttribute="leading" secondItem="EeP-Tq-mKf" secondAttribute="leading" constant="32" id="y31-nn-eHK"/>
+                        </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Add task" id="FYt-VD-2C3">
+                        <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="large"/>
+                        <color key="badgeColor" red="1" green="0.95294117649999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <imageReference key="selectedImage" image="plus.circle.fill" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="priorityPickerView" destination="YNV-v0-eva" id="KPh-9W-15V"/>
+                        <outlet property="taskNameTextField" destination="dTJ-Hs-HUw" id="R7p-8l-TOE"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hue-6R-s7l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="914" y="267"/>
+        </scene>
+        <!--History Controller-->
+        <scene sceneID="AE4-nM-rg8">
+            <objects>
+                <viewController id="3bG-vt-j73" customClass="HistoryController" customModule="ToDoApp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fQn-0M-I3X">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7r2-cZ-nLA">
+                                <rect key="frame" x="16" y="79" width="361" height="670"/>
+                                <color key="backgroundColor" red="1" green="0.95294117649999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="separatorColor" red="0.96862745100000003" green="0.25490196079999999" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="sectionIndexColor" red="0.96862745100000003" green="0.25490196079999999" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="sectionIndexBackgroundColor" red="1" green="0.95294117649999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexTrackingBackgroundColor" red="1" green="0.95294117649999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="iDw-eE-B66"/>
+                        <color key="backgroundColor" red="1" green="0.95294117649999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.96862745100000003" green="0.25490196079999999" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="7r2-cZ-nLA" firstAttribute="top" secondItem="iDw-eE-B66" secondAttribute="top" constant="20" id="2xZ-4v-GB0"/>
+                            <constraint firstItem="7r2-cZ-nLA" firstAttribute="leading" secondItem="iDw-eE-B66" secondAttribute="leading" constant="16" id="LmX-Zo-hdp"/>
+                            <constraint firstItem="iDw-eE-B66" firstAttribute="trailing" secondItem="7r2-cZ-nLA" secondAttribute="trailing" constant="16" id="XYA-5Y-0Jc"/>
+                            <constraint firstItem="iDw-eE-B66" firstAttribute="bottom" secondItem="7r2-cZ-nLA" secondAttribute="bottom" constant="20" id="dTv-ce-r7X"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="history" id="xmD-Yy-Jod">
+                        <color key="badgeColor" red="1" green="0.95294117649999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="tableView" destination="7r2-cZ-nLA" id="u1u-gN-5Tb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8kQ-y6-H2h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="914" y="936"/>
+        </scene>
+        <!--To Do List-->
+        <scene sceneID="HQ6-kD-sZC">
+            <objects>
+                <viewController id="261-MY-Jab" customClass="ToDoListController" customModule="ToDoApp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W5p-sv-bW2">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="067-eB-mDy">
+                                <rect key="frame" x="16" y="79" width="361" height="670"/>
+                                <color key="backgroundColor" red="1" green="0.95294117649999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="separatorColor" red="0.96862745100000003" green="0.25490196079999999" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="sectionIndexColor" red="0.96862745100000003" green="0.25490196079999999" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="sectionIndexBackgroundColor" red="1" green="0.95294117649999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexTrackingBackgroundColor" red="1" green="0.95294117649999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="XWO-wv-r3g"/>
+                        <color key="backgroundColor" red="1" green="0.95294117649999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.96862745100000003" green="0.25490196079999999" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="067-eB-mDy" firstAttribute="leading" secondItem="XWO-wv-r3g" secondAttribute="leading" constant="16" id="TTX-hW-ZiO"/>
+                            <constraint firstItem="XWO-wv-r3g" firstAttribute="trailing" secondItem="067-eB-mDy" secondAttribute="trailing" constant="16" id="baN-Sf-Xgf"/>
+                            <constraint firstItem="067-eB-mDy" firstAttribute="top" secondItem="XWO-wv-r3g" secondAttribute="top" constant="20" id="lIy-UG-BrK"/>
+                            <constraint firstItem="XWO-wv-r3g" firstAttribute="bottom" secondItem="067-eB-mDy" secondAttribute="bottom" constant="20" id="rFl-KV-Pzb"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="To Do List" selectedImage="pencil.and.list.clipboard" catalog="system" id="eVy-9y-gdb">
+                        <imageReference key="image" image="pencil.and.list.clipboard" catalog="system" symbolScale="large"/>
+                        <color key="badgeColor" red="0.96862745100000003" green="0.25490196079999999" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="tableView" destination="067-eB-mDy" id="efF-61-wv5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IdG-WI-c9x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="913.74045801526711" y="-387.32394366197184"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="BII-HY-DV8">
+            <objects>
+                <tabBarController id="dwN-wN-oLq" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mzb-Zj-rMv">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="261-MY-Jab" kind="relationship" relationship="viewControllers" id="LFN-hO-5Jq"/>
+                        <segue destination="7Iy-Mu-IHP" kind="relationship" relationship="viewControllers" id="tfJ-bN-5gW"/>
+                        <segue destination="3bG-vt-j73" kind="relationship" relationship="viewControllers" id="RFJ-S7-oNW"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wkl-rR-6Xf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10" y="-84"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pencil.and.list.clipboard" catalog="system" width="114" height="128"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
+    </resources>
 </document>
