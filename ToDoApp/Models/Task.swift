@@ -8,6 +8,7 @@
 struct Task: Codable {
     let name: String
     let priority: Priority
+    var isDone: Bool
     
     enum Priority: String, Codable { // Add Codable conformance to Priority enum
         case low = "Low"
