@@ -29,38 +29,30 @@ class AddTaskController: UIViewController {
         if let taskName = taskNameTextField.text, let priorityChoice = priority
         {
             let task = Task(name: taskName, priority: priorityChoice, isDone: false)
-            let taskList = AddTaskController.getAllTasks()
-            AddTaskController.saveTasks(tasks: taskList + [task])
+            let taskList = AddTaskController.getTasks(for: priorityChoice)
+            AddTaskController.saveTasks(for: priorityChoice, tasks: taskList + [task])
             showAlert(title: "New task added", message: "Task \(taskName) sucessfuly added to your to-do list")
         }
     }
     
-    static func getAllTasks() -> [Task]{
-        var result : [Task] = []
-        if let data = UserDefaults.standard.object(forKey: AddTaskController.taskKeyString) as? Data {
-            
-            do {
-                let decoder = JSONDecoder()
-                result = try decoder.decode([Task].self, from: data)
-                print("GETALLTASKS: RESULT \(result)")
-            } catch {
-                print("could'n decode given data to [Task] with error: \(error.localizedDescription)")
-            }
+    static func getTasks(for priority: Task.Priority) -> [Task] {
+        let userDefaults = UserDefaults.standard
+        if let tasksData = userDefaults.data(forKey: priority.rawValue),
+           let tasks = try? JSONDecoder().decode([Task].self, from: tasksData) {
+            return tasks
+        } else {
+            return []
         }
-        return result
     }
     
-    static func saveTasks(tasks: [Task]) {
-        do {
-            let encoder = JSONEncoder()
-            let encodedData = try encoder.encode(tasks)
-            UserDefaults.standard.setValue(encodedData, forKey: AddTaskController.taskKeyString)
-            print("SAVETASKS: RESULT \(encodedData)")
-
-        }catch{
-            print("could'n encode given [Task] data with error: \(error.localizedDescription)")
+    static func saveTasks(for priority: Task.Priority, tasks: [Task]) {
+        let userDefaults = UserDefaults.standard
+        if let tasksData = try? JSONEncoder().encode(tasks) {
+            userDefaults.set(tasksData, forKey: priority.rawValue)
         }
     }
+    
+    
     
     func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
