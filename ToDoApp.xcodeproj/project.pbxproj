@@ -21,7 +21,7 @@
 		BFC3DC242BBAE82B0094FE0F /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC3DC232BBAE82B0094FE0F /* MainTabBarViewController.swift */; };
 		BFC3DC2C2BBB3D050094FE0F /* ToDoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC3DC2B2BBB3D050094FE0F /* ToDoListController.swift */; };
 		BFC3DC2E2BBB3D220094FE0F /* AddTaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC3DC2D2BBB3D220094FE0F /* AddTaskController.swift */; };
-		BFC3DC302BBB3D350094FE0F /* HistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC3DC2F2BBB3D350094FE0F /* HistoryController.swift */; };
+		BFC3DC302BBB3D350094FE0F /* ArchiveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC3DC2F2BBB3D350094FE0F /* ArchiveController.swift */; };
 		BFC3DC342BBB3FB80094FE0F /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFC3DC332BBB3FB80094FE0F /* HistoryCell.xib */; };
 		BFC3DC352BBB3FB80094FE0F /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC3DC322BBB3FB80094FE0F /* HistoryCell.swift */; };
 		BFC3DC382BBB3FD90094FE0F /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFC3DC372BBB3FD90094FE0F /* TaskCell.xib */; };
@@ -64,7 +64,7 @@
 		BFC3DC232BBAE82B0094FE0F /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		BFC3DC2B2BBB3D050094FE0F /* ToDoListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListController.swift; sourceTree = "<group>"; };
 		BFC3DC2D2BBB3D220094FE0F /* AddTaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskController.swift; sourceTree = "<group>"; };
-		BFC3DC2F2BBB3D350094FE0F /* HistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryController.swift; sourceTree = "<group>"; };
+		BFC3DC2F2BBB3D350094FE0F /* ArchiveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveController.swift; sourceTree = "<group>"; };
 		BFC3DC322BBB3FB80094FE0F /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 		BFC3DC332BBB3FB80094FE0F /* HistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
 		BFC3DC362BBB3FD90094FE0F /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
@@ -163,7 +163,7 @@
 				BFC3DC232BBAE82B0094FE0F /* MainTabBarViewController.swift */,
 				BFC3DC2B2BBB3D050094FE0F /* ToDoListController.swift */,
 				BFC3DC2D2BBB3D220094FE0F /* AddTaskController.swift */,
-				BFC3DC2F2BBB3D350094FE0F /* HistoryController.swift */,
+				BFC3DC2F2BBB3D350094FE0F /* ArchiveController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -343,7 +343,7 @@
 				BFC3DC242BBAE82B0094FE0F /* MainTabBarViewController.swift in Sources */,
 				BFAF41552BBDD922005F0417 /* TaskTableViewCell.swift in Sources */,
 				BFC3DC2E2BBB3D220094FE0F /* AddTaskController.swift in Sources */,
-				BFC3DC302BBB3D350094FE0F /* HistoryController.swift in Sources */,
+				BFC3DC302BBB3D350094FE0F /* ArchiveController.swift in Sources */,
 				BFC3DBF42BBAE7F90094FE0F /* AppDelegate.swift in Sources */,
 				BFC3DC352BBB3FB80094FE0F /* HistoryCell.swift in Sources */,
 				BFC3DC392BBB3FD90094FE0F /* TaskCell.swift in Sources */,

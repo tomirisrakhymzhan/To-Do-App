@@ -60,17 +60,17 @@ extension ToDoListController: UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let priority = priorities[indexPath.section]
-            if var tasks = taskDataSource[priority] {
-                tasks.remove(at: indexPath.row)
-                taskDataSource[priority] = tasks
-                tableView.deleteRows(at: [indexPath], with: .fade)
-                AddTaskController.saveTasks(for: priority, tasks: tasks)
-            }
-        }
-    }
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            let priority = priorities[indexPath.section]
+//            if var tasks = taskDataSource[priority] {
+//                tasks.remove(at: indexPath.row)
+//                taskDataSource[priority] = tasks
+//                tableView.deleteRows(at: [indexPath], with: .fade)
+//                AddTaskController.saveTasks(for: priority, tasks: tasks)
+//            }
+//        }
+//    }
 }
 
 extension ToDoListController: UITableViewDelegate {
@@ -84,4 +84,52 @@ extension ToDoListController: UITableViewDelegate {
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        // Swipe to Share button
+        let shareAction = UIContextualAction(style: .normal, title: "Share") { [weak self] (_, _, completionHandler) in
+        guard let self = self else { return }
+        let priority = priorities[indexPath.section]
+        let task = self.taskDataSource[priority]?[indexPath.row]
+        let activityViewController = UIActivityViewController(activityItems: [task?.name ?? "task name"], applicationActivities: nil)
+        self.present(activityViewController, animated: true, completion: nil)
+            completionHandler(true)
+        }
+        
+        // Swipe to Archive button
+        let archiveAction = UIContextualAction(style: .normal, title: "Archive") { (action, view, completionHandler) in
+            let priority = self.priorities[indexPath.section]
+            if var tasks = self.taskDataSource[priority], let task = self.taskDataSource[priority]?[indexPath.row]{
+                let archivedTasks = ArchiveController.getAllArchivedTasks() + [task]
+                ArchiveController.saveArchivedTasks(tasks: archivedTasks)
+                tasks.remove(at: indexPath.row)
+                self.taskDataSource[priority] = tasks
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                AddTaskController.saveTasks(for: priority, tasks: tasks)
+            }
+            completionHandler(true)
+        }
+            
+        // Swipe to Delete button
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
+            let priority = self.priorities[indexPath.section]
+            if var tasks = self.taskDataSource[priority] {
+                tasks.remove(at: indexPath.row)
+                self.taskDataSource[priority] = tasks
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                AddTaskController.saveTasks(for: priority, tasks: tasks)
+            }
+            completionHandler(true)
+        }
+        
+        
+        
+        
+        shareAction.backgroundColor = UIColor(red: 252/256, green: 129/256, blue: 158/256, alpha: 1)
+
+
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction, archiveAction, shareAction])
+        return configuration
+   }
 }

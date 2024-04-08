@@ -82,35 +82,46 @@
             </objects>
             <point key="canvasLocation" x="914" y="267"/>
         </scene>
-        <!--History Controller-->
+        <!--Archive-->
         <scene sceneID="AE4-nM-rg8">
             <objects>
-                <viewController id="3bG-vt-j73" customClass="HistoryController" customModule="ToDoApp" sceneMemberID="viewController">
+                <viewController id="3bG-vt-j73" customClass="ArchiveController" customModule="ToDoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fQn-0M-I3X">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7r2-cZ-nLA">
-                                <rect key="frame" x="16" y="79" width="361" height="670"/>
+                                <rect key="frame" x="16" y="132" width="361" height="617"/>
                                 <color key="backgroundColor" red="1" green="0.95294117649999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.96862745100000003" green="0.25490196079999999" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="sectionIndexColor" red="0.96862745100000003" green="0.25490196079999999" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="sectionIndexBackgroundColor" red="1" green="0.95294117649999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexTrackingBackgroundColor" red="1" green="0.95294117649999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Archived tasks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0x-mc-nC2">
+                                <rect key="frame" x="16" y="79" width="361" height="33"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                <color key="textColor" red="0.96862745100000003" green="0.25490196079999999" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iDw-eE-B66"/>
                         <color key="backgroundColor" red="1" green="0.95294117649999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.96862745100000003" green="0.25490196079999999" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="7r2-cZ-nLA" firstAttribute="top" secondItem="iDw-eE-B66" secondAttribute="top" constant="20" id="2xZ-4v-GB0"/>
+                            <constraint firstItem="7r2-cZ-nLA" firstAttribute="top" secondItem="O0x-mc-nC2" secondAttribute="bottom" constant="20" id="2xZ-4v-GB0"/>
+                            <constraint firstItem="O0x-mc-nC2" firstAttribute="top" secondItem="iDw-eE-B66" secondAttribute="top" constant="20" id="A0R-bg-IGU"/>
+                            <constraint firstItem="O0x-mc-nC2" firstAttribute="leading" secondItem="iDw-eE-B66" secondAttribute="leading" constant="16" id="AQf-ZY-AI8"/>
                             <constraint firstItem="7r2-cZ-nLA" firstAttribute="leading" secondItem="iDw-eE-B66" secondAttribute="leading" constant="16" id="LmX-Zo-hdp"/>
                             <constraint firstItem="iDw-eE-B66" firstAttribute="trailing" secondItem="7r2-cZ-nLA" secondAttribute="trailing" constant="16" id="XYA-5Y-0Jc"/>
                             <constraint firstItem="iDw-eE-B66" firstAttribute="bottom" secondItem="7r2-cZ-nLA" secondAttribute="bottom" constant="20" id="dTv-ce-r7X"/>
+                            <constraint firstItem="iDw-eE-B66" firstAttribute="trailing" secondItem="O0x-mc-nC2" secondAttribute="trailing" constant="16" id="wJz-Y5-Zz8"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="history" id="xmD-Yy-Jod">
+                    <tabBarItem key="tabBarItem" title="Archive" id="xmD-Yy-Jod">
+                        <imageReference key="image" image="clock" catalog="system" symbolScale="large"/>
                         <color key="badgeColor" red="1" green="0.95294117649999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <imageReference key="selectedImage" image="clock" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <connections>
                         <outlet property="tableView" destination="7r2-cZ-nLA" id="u1u-gN-5Tb"/>
@@ -189,6 +200,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="clock" catalog="system" width="128" height="123"/>
         <image name="pencil.and.list.clipboard" catalog="system" width="114" height="128"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
     </resources>
